@@ -1,4 +1,8 @@
-## 0.3.18+2
+## 0.3.19+1
+
+- IOS code is working now(beta)
+
+## 0.3.19
 
 - IOS Fix
 
