@@ -3,7 +3,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_webview_mod'
-  s.version          = '0.3.18'
+  s.version          = '0.3.19'
   s.summary          = 'A Flutter plugin that provides a WebView widget on Android and iOS. with some mode.'
   s.description      = <<-DESC
 A Flutter plugin that provides a WebView widget on Android and iOS. with some mode.

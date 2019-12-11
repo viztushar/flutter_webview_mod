@@ -1,6 +1,6 @@
 name: flutter_webview_mod
 description: A Flutter plugin that provides a WebView widget on Android and iOS. with some mode.
-version: 0.3.18
+version: 0.3.18+2
 author: Tushar Parmar<viztushar@gmail.com>
 homepage: https://github.com/viztushar/flutter_webview_mod
 
@@ -33,7 +33,7 @@ flutter:
         package: com.viztushar.flutter_webview_mod
         pluginClass: WebViewFlutterPlugin
       ios:
-        pluginClass: FLTMWebViewFlutterPlugin
+        pluginClass: FLTWebViewFlutterPlugin
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

@@ -1,3 +1,11 @@
+## 0.3.18+2
+
+- IOS Fix
+
+## 0.3.18+1
+
+- Fix
+
 ## 0.3.18(with mod)
 
 - Add support for onPageStarted event.
