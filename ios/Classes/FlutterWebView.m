@@ -51,7 +51,7 @@
   if (self = [super init]) {
     _viewId = viewId;
 
-    NSString* channelName = [NSString stringWithFormat:@"plugins.flutter.io/webview_%lld", viewId];
+    NSString* channelName = [NSString stringWithFormat:@"com.viztushar.flutter_webview_mod.FlutterWebviewModPlugin/webview_%lld", viewId];
     _channel = [FlutterMethodChannel methodChannelWithName:channelName binaryMessenger:messenger];
     _javaScriptChannelNames = [[NSMutableSet alloc] init];
 
@@ -267,7 +267,7 @@
   if ([unknownKeys count] == 0) {
     return nil;
   }
-  return [NSString stringWithFormat:@"webview_flutter: unknown setting keys: {%@}",
+  return [NSString stringWithFormat:@"flutter_webview_mod: unknown setting keys: {%@}",
                                     [unknownKeys componentsJoinedByString:@", "]];
 }
 
@@ -281,7 +281,7 @@
       [preferences setJavaScriptEnabled:YES];
       break;
     default:
-      NSLog(@"webview_flutter: unknown JavaScript mode: %@", mode);
+      NSLog(@"flutter_webview_mod: unknown JavaScript mode: %@", mode);
   }
 }
 
@@ -303,7 +303,7 @@
       }
       break;
     default:
-      NSLog(@"webview_flutter: unknown auto media playback policy: %@", policy);
+      NSLog(@"flutter_webview_mod: unknown auto media playback policy: %@", policy);
   }
 }
 
