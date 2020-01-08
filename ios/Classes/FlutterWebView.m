@@ -4,6 +4,7 @@
 
 #import "FlutterWebView.h"
 #import "FLTWKNavigationDelegate.h"
+#import "FLTWKProgressionDelegate.h"
 #import "JavaScriptChannelHandler.h"
 
 @implementation FLTWebViewFactory {
@@ -42,6 +43,7 @@
   // The set of registered JavaScript channel names.
   NSMutableSet* _javaScriptChannelNames;
   FLTWKNavigationDelegate* _navigationDelegate;
+  FLTWKProgressionDelegate* _progressionDelegate;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -87,6 +89,12 @@
     }
   }
   return self;
+}
+
+- (void)dealloc {
+  if (_progressionDelegate != nil) {
+    [_progressionDelegate stopObservingProgress:_webView];
+  }
 }
 
 - (UIView*)view {
@@ -255,7 +263,19 @@
     } else if ([key isEqualToString:@"hasNavigationDelegate"]) {
       NSNumber* hasDartNavigationDelegate = settings[key];
       _navigationDelegate.hasDartNavigationDelegate = [hasDartNavigationDelegate boolValue];
-    } else if ([key isEqualToString:@"debuggingEnabled"]) {
+    } 
+    else if ([key isEqualToString:@"hasProgressTracking"]) {
+      NSNumber* hasProgressTrackingValue = settings[key];
+      bool hasProgressTracking = [hasProgressTrackingValue boolValue];
+      if (hasProgressTracking) {
+        _progressionDelegate = [[FLTWKProgressionDelegate alloc] initWithWebView:_webView
+                                                                         channel:_channel];
+      }
+    }  else if ([key isEqualToString:@"gestureNavigationEnabled"]) {
+      NSNumber* allowsBackForwardNavigationGestures = settings[key];
+      _webView.allowsBackForwardNavigationGestures =
+          [allowsBackForwardNavigationGestures boolValue];
+    }  else if ([key isEqualToString:@"debuggingEnabled"]) {
       // no-op debugging is always enabled on iOS.
     } else if ([key isEqualToString:@"userAgent"]) {
       NSString* userAgent = settings[key];

@@ -152,6 +152,7 @@ class WebView extends StatefulWidget {
     this.onPageFinished,
     this.onProgress,
     this.debuggingEnabled = false,
+    this.gestureNavigationEnabled = false,
     this.userAgent,
     this.initialMediaPlaybackPolicy =
         AutoMediaPlaybackPolicy.require_user_action_for_all_media_types,
@@ -268,7 +269,7 @@ class WebView extends StatefulWidget {
   /// Invoked when a page starts loading.
   final PageStartedCallback onPageStarted;
 
-   /// Invoked when a page is loading.
+  /// Invoked when a page is loading.
   final PageLoadingCallback onProgress;
 
   /// Invoked when a page has finished loading.
@@ -309,6 +310,13 @@ class WebView extends StatefulWidget {
   ///
   /// By default `userAgent` is null.
   final String userAgent;
+
+  /// A Boolean value indicating whether horizontal swipe gestures will trigger back-forward list navigations.
+  ///
+  /// This only works on iOS.
+  ///
+  /// By default `gestureNavigationEnabled` is false.
+  final bool gestureNavigationEnabled;
 
   /// Which restrictions apply on automatic media playback.
   ///
@@ -389,8 +397,9 @@ WebSettings _webSettingsFromWidget(WebView widget) {
   return WebSettings(
     javascriptMode: widget.javascriptMode,
     hasNavigationDelegate: widget.navigationDelegate != null,
-     hasProgressTracking: widget.onProgress != null,
+    hasProgressTracking: widget.onProgress != null,
     debuggingEnabled: widget.debuggingEnabled,
+    gestureNavigationEnabled: widget.gestureNavigationEnabled,
     userAgent: WebSetting<String>.of(widget.userAgent),
   );
 }

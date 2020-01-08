@@ -10,7 +10,6 @@ import 'package:flutter/widgets.dart';
 
 import 'flutter_webview_mod.dart';
 
-
 /// Interface for callbacks made by [WebViewPlatformController].
 ///
 /// The webview plugin implements this class, and passes an instance to the [WebViewPlatformController].
@@ -236,6 +235,7 @@ class WebSettings {
     this.hasNavigationDelegate,
     this.hasProgressTracking,
     this.debuggingEnabled,
+    this.gestureNavigationEnabled,
     @required this.userAgent,
   }) : assert(userAgent != null);
 
@@ -263,10 +263,14 @@ class WebSettings {
   /// See also [WebView.userAgent].
   final WebSetting<String> userAgent;
 
+  /// Whether to allow swipe based navigation in iOS.
+  ///
+  /// See also: [WebView.gestureNavigationEnabled]
+  final bool gestureNavigationEnabled;
+
   @override
   String toString() {
-    return 'WebSettings(javascriptMode: $javascriptMode, hasNavigationDelegate: $hasNavigationDelegate, hasProgressTracking: $hasProgressTracking, debuggingEnabled: $debuggingEnabled, userAgent: $userAgent,)';
-    return 'WebSettings(javascriptMode: $javascriptMode, hasNavigationDelegate: $hasNavigationDelegate, debuggingEnabled: $debuggingEnabled, userAgent: $userAgent,)';
+    return 'WebSettings(javascriptMode: $javascriptMode, hasNavigationDelegate: $hasNavigationDelegate, hasProgressTracking: $hasProgressTracking, debuggingEnabled: $debuggingEnabled, userAgent: $userAgent,gestureNavigationEnabled: $gestureNavigationEnabled)';
   }
 }
 

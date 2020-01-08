@@ -142,6 +142,8 @@ class MethodChannelWebViewPlatform implements WebViewPlatformController {
     _addIfNonNull('hasNavigationDelegate', settings.hasNavigationDelegate);
     _addIfNonNull('hasProgressTracking', settings.hasProgressTracking);
     _addIfNonNull('debuggingEnabled', settings.debuggingEnabled);
+    _addIfNonNull(
+        'gestureNavigationEnabled', settings.gestureNavigationEnabled);
     _addSettingIfPresent('userAgent', settings.userAgent);
     return map;
   }

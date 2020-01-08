@@ -1,3 +1,32 @@
+## 0.3.19+3
+
+    added webview_flutter 0.3.18+1 to 0.3.19+3
+    ## 0.3.19+3
+
+    * Setup XCTests.
+
+    ## 0.3.19+2
+
+    * Migrate from deprecated BinaryMessages to ServicesBinding.instance.defaultBinaryMessenger.
+
+    ## 0.3.19+1
+
+    * Raise min Flutter SDK requirement to the latest stable. v2 embedding apps no
+      longer need to special case their Flutter SDK requirement like they have
+      since v0.3.15+3.
+
+    ## 0.3.19
+
+    * Add setting for iOS to allow gesture based navigation.
+
+    ## 0.3.18+1
+
+    * Be explicit that keyboard is not ready for production in README.md.
+
+## 0.3.19+2
+
+- IOS loading progress tracking(https://github.com/flutter/plugins/pull/2151)
+
 ## 0.3.19+1
 
 - IOS code is working now(beta)
